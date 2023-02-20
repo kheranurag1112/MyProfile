@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyProfile</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon.css">
+    <link rel="stylesheet" href="~/css/plugins.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/color.css" id="color-change">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/images/favicon.ico">
+    
+
+    <title>Runaway - Personal Portfolio HTML Template</title>
+</head>
+<body>
+
+    <header class="main_nav dark_nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <h1 class="text-warning">A</h1>  <h2 class="text-white">nurag</h2>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link active" asp-controller="Home" asp-action="Index" >Home<span class="sr-only">(current)</span></a></li>
+                      
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Skill">Skill</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Service">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="TESTIMONIAL">Testimonial</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Blog">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div>
+        
+        @RenderBody()
+    </div>
+    
+
+    <footer class="p_20 color_lightgray bg_deepblack text-center full_row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="copyright"><p><a href="https://www.templateshub.net" target="_blank">Kher Anurag</a></p></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/custom.js" asp-append-version="true"></script>
+    <script>
+        $(document).ready(function () {
+
+            //========================================
+            // Water Effect
+            //========================================
+
+            $('.banner_water_effect').ripples({
+                resolution: 256,
+                dropRadius: 20,
+                perturbance: 0.03,
+                interactive: true,
+            });
+            //======================================
+            //  Smoothscroll js
+            //======================================
+
+            $("a").on('click', function (event) {
+
+                if (this.hash !== "") {
+                    event.preventDefault();
+
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 1000, function () {
+
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
